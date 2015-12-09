@@ -1,6 +1,8 @@
 export default function vectorDatabase() {
 
   const database = [];
+  const definition = [];
+  let databaseHash = 0;
 
   return {
 
@@ -10,61 +12,55 @@ export default function vectorDatabase() {
 
     loadDatabase: function (arr) {
       database.push.apply(database, arr);
+      databaseHash = this.getHashSecondNorm(database.length);
+    },
+
+    getHash: function (arr) {
+      let innerProduct = 0;
+      const hash = [];
+      for (let i = 0, l = database.length; i < l; i++) {
+        if (arr.indexOf(database[i]) > -1) {
+          hash.push(1);
+          innerProduct++;
+        } else {
+          hash.push(0);
+        }
+      }
+      return {
+        hash: hash,
+        innerProduct: innerProduct,
+        secondNorm: this.getHashSecondNorm(innerProduct)
+      };
+    },
+
+    getResult: function (vector) {
+      return vector.innerProduct / (databaseHash * vector.secondNorm);
+    },
+
+    getHashSecondNorm: function (innerProduct) {
+      return Math.sqrt(innerProduct);
     },
 
     showDatabase: function () {
       return database;
     },
 
-    getHash: function () {
-
+    addDefinition: function (def) {
+      definition.push.apply(def);
     },
 
-    defineVector: function (def) {
-      console.log(def);
+    buildVectorObject: function (obj) {
+      const vector = definition.reduce(function (p, c) {
+        p[c] = obj[c];
+      }, {});
+      vector.hash = this.getHash(obj.tags); 
     },
 
-    addVector: function (vector) {
+    addVector: function (obj) {
+      const vector = this.buildVectorObject(obj);
       database.push(vector);
     }
 
   };
 
 }
-
-/*
-var base = ['cat', 'dog', 'rabbit', 'tree', 'bob'];
-
-var input = ['dog', 'bob', 'bone'];
-var input2 = ['cat', 'dog', 'rabbit', 'tree', 'bob'];
-var input3 = ['carrot', 'frog', 'cat', 'moose', 'rabbit', 'tree', 'bob'];
-
-function getHashObject(base, input) {
-  var hash = [];
-  var innerProduct = 0;
-  for (var i = 0, l = base.length; i < l; i++) {
-    if (input.indexOf(base[i]) > -1) {
-      hash.push(1);
-      innerProduct++;
-    } else {
-      hash.push(0);
-    }
-  }
-  var twoNorm = Math.sqrt(innerProduct);
-  var baseTwoNorm = Math.sqrt(base.length);
-  return {
-    hash: hash,
-    innerProduct: innerProduct,
-    twoNorm: twoNorm,
-    cosine: innerProduct / (baseTwoNorm * twoNorm)
-  };
-}
-
-var hash = getHashObject(base, input);
-var hash2 = getHashObject(base, input2);
-var hash3 = getHashObject(base, input3);
-
-console.log(hash.cosine);
-console.log(hash2.cosine);
-console.log(hash3.cosine);
-*/
