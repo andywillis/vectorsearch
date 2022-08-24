@@ -1,0 +1,26 @@
+{
+  "name": "vectorsearch2",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",
+    "build": "pnpm workspace client run build",
+    "clientdev": "pnpm --filter client run dev",
+    "serverdev": "pnpm --filter server run dev",
+    "databasedev": "pnpm --filter database run dev",
+    "heroku-postbuild": "pnpm run build",
+    "testui": "npx vitest watch --ui --threads false",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.16.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "vitest": "^0.16.0"
+  }
+}

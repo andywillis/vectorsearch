@@ -1,0 +1,10 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+node_modules
+packages/client/dist
+packages/client/node_modules
+packages/server/node_modules
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
