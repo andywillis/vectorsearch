@@ -1,31 +1,33 @@
 import commonWords from './common.js';
 
+import { IPost, IEntry } from './types';
+
 // VS adds key words to object identified by key
 // VS accepts search string and finds the best matches
 
 class VectorSpace {
 
-  dictionary = [];
+  dictionary: string[] = [];
 
-  space = [];
+  space: IEntry[] = [];
 
-  static lowerCaseWord(word) {
+  static lowerCaseWord(word: string): string {
     return word.toLowerCase();
   }
 
-  static notCommonWord(word) {
+  static notCommonWord(word: string): boolean {
     return !commonWords.includes(word);
   }
 
-  static removePunctuation(str) {
+  static removePunctuation(str: string): string {
     return str.replace(/[^\p{L}\s]/gu, '');
   }
 
-  static sortByWord(a, b) {
+  static sortByWord(a: string, b: string): number {
     return a.localeCompare(b);
   }
 
-  static filterWords(str) {
+  static filterWords(str: string): string[] {
     return VectorSpace.removePunctuation(str)
       .split(/\b\s{1,}\b/g)
       .filter(VectorSpace.notCommonWord)
@@ -33,12 +35,12 @@ class VectorSpace {
       .sort(VectorSpace.sortByWord);
   }
 
-  updateDictionary(words) {
+  updateDictionary(words: string[]) {
     const merged = [ ...this.dictionary, ...words ];
     this.dictionary = merged.sort(VectorSpace.sortByWord);
   }
 
-  addPost({ title, post }) {
+  addPost({ title, post }: IPost) {
     const words = VectorSpace.filterWords(post);
     this.space.push({ title, words });
     this.updateDictionary(words);
