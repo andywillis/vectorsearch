@@ -5,15 +5,15 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
   "rules": {
-    "import/extensions": [0, {
-      "css": "always",
-      "js": "always",
-      "jsx": "always",
-      "ts": "always",
-      "tsx": "always",
-      "json": "always"
-    }],
+    "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
     "no-underscore-dangle": 0,
     "no-plusplus": 0,
