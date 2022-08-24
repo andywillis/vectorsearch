@@ -2,17 +2,17 @@
   "extends": [
     "airbnb-base"
   ],
-  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": "latest",
-    "requireConfigFile": false
+    "ecmaVersion": "latest"
   },
   "rules": {
-    "import/extensions": [1, {
-      "css": "never",
-      "js": "never",
-      "jsx": "never",
-      "json": "never"
+    "import/extensions": [0, {
+      "css": "always",
+      "js": "always",
+      "jsx": "always",
+      "ts": "always",
+      "tsx": "always",
+      "json": "always"
     }],
     "import/no-extraneous-dependencies": 0,
     "no-underscore-dangle": 0,
@@ -29,6 +29,7 @@
       "objectsInArrays": false,
       "arraysInArrays": false
     }],
+    "no-restricted-syntax":0,
     "comma-dangle": 0,
     "padded-blocks": 0,
     "arrow-parens": 0,
