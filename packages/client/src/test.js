@@ -5,5 +5,5 @@ const post2 = 'Blather box 43546%$%$%$£%£ word to and from';
 
 const vc = new VectorSearch();
 
-vc.addPost({ id: 'first', post });
-vc.addPost({ id: 'second', post: post2 });
+vc.addPost({ title: 'first', post });
+vc.addPost({ title: 'second', post: post2 });
