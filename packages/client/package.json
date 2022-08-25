@@ -10,7 +10,7 @@
   },
   "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
-    "typescript": "^4.7.4",
+    "ts-node": "^10.9.1",
     "vite": "^3.0.7"
   }
 }

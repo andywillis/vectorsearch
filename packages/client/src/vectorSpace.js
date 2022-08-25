@@ -1,33 +1,31 @@
 import commonWords from './common.js';
 
-import { IPost, IEntry } from './types';
-
 // VS adds key words to object identified by key
 // VS accepts search string and finds the best matches
 
 class VectorSpace {
 
-  dictionary: string[] = [];
+  dictionary = [];
 
-  space: IEntry[] = [];
+  space = [];
 
-  static lowerCaseWord(word: string): string {
+  static lowerCaseWord(word) {
     return word.toLowerCase();
   }
 
-  static notCommonWord(word: string): boolean {
+  static notCommonWord(word) {
     return !commonWords.includes(word);
   }
 
-  static removePunctuation(str: string): string {
+  static removePunctuation(str) {
     return str.replace(/[^\p{L}\s]/gu, '');
   }
 
-  static sortByWord(a: string, b: string): number {
+  static sortByWord(a, b) {
     return a.localeCompare(b);
   }
 
-  static filterWords(str: string): string[] {
+  static filterWords(str) {
     return VectorSpace.removePunctuation(str)
       .split(/\b\s{1,}\b/g)
       .filter(VectorSpace.notCommonWord)
@@ -35,16 +33,25 @@ class VectorSpace {
       .sort(VectorSpace.sortByWord);
   }
 
-  updateDictionary(words: string[]) {
+  updateDictionary(words) {
     const merged = [ ...this.dictionary, ...words ];
     this.dictionary = merged.sort(VectorSpace.sortByWord);
   }
 
-  addPost({ title, post }: IPost) {
+  addPost({ title, post }) {
     const words = VectorSpace.filterWords(post);
     this.space.push({ title, words });
     this.updateDictionary(words);
-    console.log(this.space, this.dictionary);
+  }
+
+  search(search) {
+    const query = search.toLowerCase().split(' ');
+    const out = [];
+    for (const entry of this.space) {
+      const found = query.some(word => entry.words.includes(word));
+      if (found) out.push(entry);
+    }
+    console.log(out);
   }
 
 }
