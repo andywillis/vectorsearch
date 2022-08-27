@@ -1,59 +1,23 @@
-import commonWords from './words/common.js';
-
 class VectorSpace {
 
-  dictionary = [];
-
-  space = [];
-
-  static lowerCaseWord(word) {
-    return word.toLowerCase();
+  addPlugin(fn) {
+    this.plugin = fn;
+    return this;
   }
 
-  static notCommonWord(word) {
-    return !commonWords.includes(word);
+  addData(data) {
+    this.data = data;
+    return this;
   }
 
-  static removePunctuation(str) {
-    return str.replace(/[^\p{L}\s]/gu, '');
+  processData() {
+    this.space = this.plugin(this.data);
+    return this;
   }
 
-  static sortByWord(a, b) {
-    return a.localeCompare(b);
-  }
-
-  static filterWords(str) {
-    return VectorSpace.removePunctuation(str)
-      .split(/\b\s{1,}\b/g)
-      .filter(VectorSpace.notCommonWord)
-      .map(VectorSpace.lowerCaseWord)
-      .sort(VectorSpace.sortByWord);
-  }
-
-  updateDictionary(words) {
-    const merged = [ ...this.dictionary, ...words ];
-    this.dictionary = merged.sort(VectorSpace.sortByWord);
-  }
-
-  addPost({ title, post }) {
-    const words = VectorSpace.filterWords(post);
-    this.space.push({ title, words });
-    this.updateDictionary(words);
-  }
-
-  filterAndVector(query) {
-    const entries = [];
-    for (const entry of this.space) {
-      const found = query.some(word => entry.words.includes(word));
-      if (found) entries.push(entry);
-    }
-    return entries;
-  }
-
-  search(search) {
-    const query = search.toLowerCase().split(' ');
-    const vectored = this.filterAndVector(query);
-    console.log(vectored);
+  showSpace() {
+    console.log(this.space);
+    return this;
   }
 
 }
