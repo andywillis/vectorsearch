@@ -1,7 +1,4 @@
-import commonWords from './common.js';
-
-// VS adds key words to object identified by key
-// VS accepts search string and finds the best matches
+import commonWords from './words/common.js';
 
 class VectorSpace {
 
@@ -44,14 +41,19 @@ class VectorSpace {
     this.updateDictionary(words);
   }
 
-  search(search) {
-    const query = search.toLowerCase().split(' ');
-    const out = [];
+  filterAndVector(query) {
+    const entries = [];
     for (const entry of this.space) {
       const found = query.some(word => entry.words.includes(word));
-      if (found) out.push(entry);
+      if (found) entries.push(entry);
     }
-    console.log(out);
+    return entries;
+  }
+
+  search(search) {
+    const query = search.toLowerCase().split(' ');
+    const vectored = this.filterAndVector(query);
+    console.log(vectored);
   }
 
 }

@@ -1,12 +1,18 @@
-import VectorSearch from './vectorSpace.js';
+import data from '../data/data.js';
+import journal from './plugins/journal.js';
 
-const post = '[My] box name! is Andy,.; "Willis"$%^^*^%%*';
-const post2 = 'Blather box 43546%$%$%$£%£ word to and from';
+// import VectorSearch from './vectorSpace.js';
 
-const vc = new VectorSearch();
+// const post = '[My] box name! is Andy,.; "Willis"$%^^*^%%*';
+// const post2 = 'Blather 43546%$%$%$£%£ word Andy to and from';
 
-vc.addPost({ title: 'first', post });
-vc.addPost({ title: 'second', post: post2 });
+// const vc = new VectorSearch();
 
-vc.search('boom');
-vc.search('blather');
+// vc.addData(data);
+// vc.addPost({ title: 'first', post });
+// vc.addPost({ title: 'second', post: post2 });
+
+// vc.search('boom');
+// vc.search('blather');
+
+console.log(journal(data));
