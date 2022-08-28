@@ -1,6 +1,7 @@
 {
   "name": "vectorsearch2",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",

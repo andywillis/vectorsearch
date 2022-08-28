@@ -1,11 +1,10 @@
-import json from '../data/data.json' assert { type: 'json' };
+import data from '../data/data.js';
 import journal from './plugins/journal.js';
 
 import VectorSearch from './vectorSpace.js';
 
-const vc = new VectorSearch();
-
-vc.addPlugin(journal)
-  .addData(JSON.parse(json))
+new VectorSearch()
+  .addPlugin(journal)
+  .addData(data)
   .processData()
   .showSpace();
