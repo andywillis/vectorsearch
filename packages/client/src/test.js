@@ -1,4 +1,4 @@
-import data from '../data/data.js';
+import data from '../data/data.json' assert { type: 'json' };
 import journal from './plugins/journal.js';
 
 import VectorSearch from './vectorSpace.js';
