@@ -4,7 +4,7 @@ import {
   prepositions,
   possessivePronouns,
   stateVerbs,
-} from '../words/index.js';
+} from '../dictionary/index.js';
 
 export default function filterText(text) {
 
