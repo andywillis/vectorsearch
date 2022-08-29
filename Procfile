@@ -1,1 +1,0 @@
-web: NODE_ENV=production node --experimental-specifier-resolution=node --experimental-json-modules packages/server/index.js -port 8000
