@@ -2,8 +2,19 @@
   "extends": [
     "airbnb-base"
   ],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "plugins": [
+        "@babel/plugin-syntax-import-assertions"
+      ]
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
   },
   "settings": {
     "import/resolver": {

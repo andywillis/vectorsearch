@@ -1,26 +1,24 @@
 {
   "name": "vectorsearch2",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "dev": "concurrently \"pnpm run serverdev\" \"pnpm run clientdev\"",
-    "build": "pnpm workspace client run build",
-    "clientdev": "pnpm --filter client run dev",
-    "serverdev": "pnpm --filter server run dev",
-    "databasedev": "pnpm --filter database run dev",
-    "heroku-postbuild": "pnpm run build",
-    "testui": "npx vitest watch --ui --threads false",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "build": "pnpm --filter client run build",
+    "test": "tape tests/**/*.js | tap-spec-emoji"
   },
   "dependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^7.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/eslint-parser": "^7.18.9",
+    "@babel/plugin-syntax-import-assertions": "^7.18.6",
     "@vitest/ui": "^0.16.0",
-    "eslint": "^8.2.0",
+    "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "vitest": "^0.16.0"
+    "eslint-plugin-import": "^2.26.0",
+    "tap-spec-emoji": "^6.1.2",
+    "tape": "^5.6.0"
   }
 }
