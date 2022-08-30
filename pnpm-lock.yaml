@@ -10,6 +10,7 @@ specifiers:
   eslint-plugin-import: ^2.26.0
   tap-spec: ^5.0.0
   tape: ^5.6.0
+  typescript: ^4.8.2
 
 dependencies:
   concurrently: 7.3.0
@@ -23,6 +24,7 @@ devDependencies:
   eslint-plugin-import: 2.26.0_eslint@8.23.0
   tap-spec: 5.0.0
   tape: 5.6.0
+  typescript: 4.8.2
 
 packages:
 
@@ -2051,6 +2053,12 @@ packages:
   /type-fest/0.20.2:
     resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /typescript/4.8.2:
+    resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /unbox-primitive/1.0.2:
