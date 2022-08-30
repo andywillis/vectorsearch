@@ -1,7 +1,7 @@
 import data from '../data/data.json' assert { type: 'json' };
-import journal from '../src/plugins/journal.js';
+import journal from '../plugins/journal';
 
-import VectorSearch from '../src/index.js';
+import VectorSearch from '../index';
 
 const vs = new VectorSearch()
   .addPlugin(journal)
