@@ -3,11 +3,12 @@ import journal from '../src/plugins/journal.js';
 
 import VectorSearch from '../src/index.js';
 
-// eslint-disable-next-line no-unused-vars
 const vs = new VectorSearch()
   .addPlugin(journal)
   .addData(data)
-  .processData()
-  .search('sea andy earls broadstairs sandwich drains');
+  .processData();
 
-// console.log(vs.showSpace());
+const query = 'sea andy earls broadstairs sandwich drains';
+const results = vs.search(query);
+
+console.log(results);
