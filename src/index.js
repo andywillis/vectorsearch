@@ -19,20 +19,20 @@ class VectorSpace {
     return this.space;
   }
 
-  static getInnerProduct(initial, arr) {
+  static getSqrtInnerProduct(initial, arr) {
     let innerProduct = 0;
     for (let i = 0; i < initial.length; i++) {
       innerProduct += initial[i] * arr[i];
     }
-    return innerProduct;
+    return Math.sqrt(innerProduct);
   }
 
   static getResult(initial, vector) {
-    const innerSqrtProduct = {
-      initial: Math.sqrt(VectorSpace.getInnerProduct(initial, initial)),
-      vector: Math.sqrt(VectorSpace.getInnerProduct(initial, vector))
+    const results = {
+      initial: VectorSpace.getSqrtInnerProduct(initial, initial),
+      vector: VectorSpace.getSqrtInnerProduct(initial, vector)
     };
-    return innerSqrtProduct.vector / innerSqrtProduct.initial;
+    return results.vector / results.initial;
   }
 
   buildVector(query) {
@@ -52,12 +52,15 @@ class VectorSpace {
         entry.vector
       );
     }
-    console.log(entries);
+    return entries
+      .filter(entry => entry.result)
+      .sort((a, b) => b.result - a.result);
   }
 
   search(str) {
     const query = str.split(' ');
-    this.buildVector(query);
+    const entries = this.buildVector(query);
+    console.log(entries);
   }
 
 }

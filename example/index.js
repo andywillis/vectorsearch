@@ -8,6 +8,6 @@ const vs = new VectorSearch()
   .addPlugin(journal)
   .addData(data)
   .processData()
-  .search('andy earls broadstairs sandwich');
+  .search('sea andy earls broadstairs sandwich drains');
 
 // console.log(vs.showSpace());
