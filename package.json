@@ -4,6 +4,7 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
+    "example": "node example/index.js",
     "build": "pnpm --filter client run build",
     "test": "tape tests/**/*.js | tap-spec"
   },

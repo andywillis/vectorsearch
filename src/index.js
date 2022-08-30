@@ -25,10 +25,10 @@ class VectorSpace {
 
   // Finds the inner product between the two arrays
   // and then finds the square root of that value
-  static getSqrtInnerProduct(initial, arr) {
+  static getSqrtInnerProduct(vectorOne, vectorTwo) {
     let innerProduct = 0;
-    for (let i = 0; i < initial.length; i++) {
-      innerProduct += initial[i] * arr[i];
+    for (let i = 0; i < vectorOne.length; i++) {
+      innerProduct += vectorOne[i] * vectorTwo[i];
     }
     return Math.sqrt(innerProduct);
   }
