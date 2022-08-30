@@ -54,7 +54,7 @@ class VectorSpace implements IVectorSpace {
     return [ ...this.space ];
   }
 
-  filterByQuery(query) {
+  filterByQuery(query: string[]) {
 
     // Make a copy of the vector space
     const entries = this.copySpace();
