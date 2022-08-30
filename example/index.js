@@ -3,8 +3,11 @@ import journal from '../src/plugins/journal.js';
 
 import VectorSearch from '../src/index.js';
 
-new VectorSearch()
+// eslint-disable-next-line no-unused-vars
+const vs = new VectorSearch()
   .addPlugin(journal)
   .addData(data)
   .processData()
-  .showSpace();
+  .search('andy earls broadstairs sandwich');
+
+// console.log(vs.showSpace());
