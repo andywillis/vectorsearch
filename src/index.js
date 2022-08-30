@@ -36,7 +36,7 @@ class VectorSpace {
   // Finds the square root inner product for both the entry
   // vector and the query vector, and return query / initial
   // to get a floating point number
-  static getResult({ initialVector, queryVector }) {
+  static getRank({ initialVector, queryVector }) {
     const results = {
       initialVector: VectorSpace.getSqrtInnerProduct(initialVector, initialVector),
       queryVector: VectorSpace.getSqrtInnerProduct(initialVector, queryVector)
@@ -74,7 +74,7 @@ class VectorSpace {
 
       // Pass in the initial vector, and the vector
       // for the query
-      entry.rank = VectorSpace.getResult({
+      entry.rank = VectorSpace.getRank({
         initialVector: new Array(entry.words.length).fill(1),
         queryVector: entry.queryVector
       });
