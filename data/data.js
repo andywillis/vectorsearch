@@ -132,7 +132,7 @@ export default {
         {
           id: 0,
           type: 'para',
-          html: 'Today I implemented basic responsive images for this site in order to improve the performance, and it took less than an hour thanks - mainly - to Flickr.'
+          html: 'Today I implemented basic responsive images for this site in order to improve the performance, and it took less than an hour thanks, mainly, to Flickr.'
         },
         {
           id: 1,
