@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "pnpm --filter client run build",
-    "test": "tape tests/**/*.js | tap-spec-emoji"
+    "test": "tape tests/**/*.js | tap-spec"
   },
   "dependencies": {
     "concurrently": "^7.3.0"
@@ -17,7 +17,7 @@
     "eslint": "^8.23.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "tap-spec-emoji": "^6.1.2",
+    "tap-spec": "^5.0.0",
     "tape": "^5.6.0"
   }
 }

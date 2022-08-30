@@ -13,6 +13,9 @@ export default function filterText(text) {
     // Join paras
     .join('')
 
+    // To lowercase
+    .toLowerCase()
+
     // Split on the space
     .split(' ')
 

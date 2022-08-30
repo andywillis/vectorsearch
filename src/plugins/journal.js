@@ -1,24 +1,26 @@
 import { sanitiseText, filterText } from '../helpers/index.js';
 
+// A plugin must return an array in the following shape:
+// { id: string | number, title: string, words: string[] }
 export default function journal(data) {
 
   const entries = [];
 
   for (const entry of data.entries) {
 
-    const { id, title, body } = entry;
+    const { id, link, title, body } = entry;
 
-    const text = [];
+    const words = [];
 
     for (const para of body) {
       if (para.html) {
-        text.push(sanitiseText(para.html));
+        words.push(sanitiseText(para.html));
       }
     }
 
-    if (text.length) {
-      const filtered = filterText(text);
-      entries.push({ id, title, text: filtered });
+    if (words.length) {
+      const filtered = filterText(words);
+      entries.push({ id, title, link, words: filtered });
     }
 
   }

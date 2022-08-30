@@ -3,8 +3,12 @@ import journal from '../src/plugins/journal.js';
 
 import VectorSearch from '../src/index.js';
 
-new VectorSearch()
+const vs = new VectorSearch()
   .addPlugin(journal)
   .addData(data)
-  .processData()
-  .showSpace();
+  .processData();
+
+const query = 'sea andy earls broadstairs sandwich drains';
+const results = vs.search(query);
+
+console.log(results);
