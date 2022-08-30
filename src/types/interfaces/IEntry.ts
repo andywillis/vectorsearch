@@ -1,5 +1,7 @@
+import TId from '../aliases/TId';
+
 interface IEntry {
-  id: string | number;
+  id: TId;
   title: string;
   words: string[];
 }
