@@ -1,3 +1,5 @@
+import { sanitiseText, filterText } from './helpers/index.js';
+
 import { IVectorSpace } from './types/index';
 
 class VectorSpace implements IVectorSpace {
@@ -8,9 +10,12 @@ class VectorSpace implements IVectorSpace {
 
   space;
 
-  // Add plugin to be used to transform the data
-  addPlugin(fn) {
-    this.plugin = fn;
+  // Add a plugin to be used to transform the data
+  // The plugin accepts both `sanitiseText` and `filterText`
+  // as arguments, and returns a new function to be assigned
+  // to `this.plugin`
+  addPlugin(plugin) {
+    this.plugin = plugin({ sanitiseText, filterText });
     return this;
   }
 
