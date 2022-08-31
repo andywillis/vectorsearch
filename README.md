@@ -8,9 +8,9 @@ Plugins should output objects with the following shape:
 
 ```
 interface IEntry {
-	id: string | number;
-	title: string;
-	words: string[];
+  id: string | number;
+  title: string;
+  words: string[];
 }
 ```
 
