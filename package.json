@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "main": "build/index.js",
   "scripts": {
-    "example": "node --experimental-specifier-resolution=node build/example/index.js",
+    "example": "node --experimental-specifier-resolution=node dist/example/index.js",
     "build": "tsc",
     "test": "ts-node node_modules/tape/bin/tape tests/**/* | tap-spec"
   },
