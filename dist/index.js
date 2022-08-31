@@ -1,10 +1,11 @@
+import { sanitiseText, filterText } from './helpers/index';
 class VectorSpace {
     plugin;
     data;
     space;
     // Add plugin to be used to transform the data
     addPlugin(fn) {
-        this.plugin = fn;
+        this.plugin = fn({ sanitiseText, filterText });
         return this;
     }
     // Add the data to be transformed
