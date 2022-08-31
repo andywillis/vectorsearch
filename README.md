@@ -1,6 +1,18 @@
 # Vector search
 
-Small vector search engine.
+Small plugin-based vector search engine.
+
+## Notes
+
+Plugins should output objects with the following shape:
+
+```
+interface IEntry {
+	id: string | number;
+	title: string;
+	words: string[];
+}
+```
 
 ## Licence
 

@@ -1,4 +1,4 @@
-import { IVectorSpace } from './types/index.js';
+import { IVectorSpace } from './types/index';
 
 class VectorSpace implements IVectorSpace {
 
