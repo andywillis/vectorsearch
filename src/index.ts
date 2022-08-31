@@ -1,4 +1,12 @@
-class VectorSpace {
+import { IVectorSpace } from './types/index.js';
+
+class VectorSpace implements IVectorSpace {
+
+  plugin;
+
+  data;
+
+  space;
 
   // Add plugin to be used to transform the data
   addPlugin(fn) {
@@ -48,7 +56,7 @@ class VectorSpace {
     return [ ...this.space ];
   }
 
-  filterByQuery(query) {
+  filterByQuery(query: string[]) {
 
     // Make a copy of the vector space
     const entries = this.copySpace();

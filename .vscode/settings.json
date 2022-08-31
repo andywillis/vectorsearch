@@ -1,5 +1,6 @@
 {
   "eslint.workingDirectories": [
     "src/client", "src/server"
-  ]
+  ],
+  "javascript.implicitProjectConfig.checkJs": true
 }
