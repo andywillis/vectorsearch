@@ -7,7 +7,7 @@
   "scripts": {
     "example": "node --experimental-specifier-resolution=node dist/example/index.js",
     "build": "tsc",
-    "test": "ts-node node_modules/tape/bin/tape tests/**/* | tap-spec"
+    "test": "node --loader=ts-node/esm node_modules/tape/bin/tape tests/**/* | tap-spec"
   },
   "dependencies": {
     "concurrently": "^7.3.0"

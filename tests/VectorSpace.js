@@ -1,5 +1,6 @@
 import test from 'tape';
-import VectorSpace from '../src/index';
+
+import VectorSpace from '../src/index.ts';
 
 const vs = new VectorSpace();
 
