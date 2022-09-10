@@ -1,5 +1,5 @@
 # Set default behaviour, in case users don't have core.autocrlf set.
-* text=auto
+* text=false
 
 # Declare files that will always have LF line endings on checkout.
 *.html text eol=lf
