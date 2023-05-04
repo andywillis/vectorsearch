@@ -2,10 +2,12 @@
   "name": "vectorsearch2",
   "private": true,
   "type": "module",
-  "version": "0.0.0",
+  "license": "CC-BY-NC-SA-4.0",
+  "author": "Andy Willis",
   "main": "build/index.js",
   "scripts": {
-    "example": "node --experimental-specifier-resolution=node dist/example/index.js",
+    "sc": "cspell --config cspell.config.js",
+    "example": "node --experimental-specifier-resolution=node build/index.js",
     "build": "tsc",
     "test": "node --loader=ts-node/esm node_modules/tape/bin/tape test/**/* | tap-spec"
   },
